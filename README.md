@@ -1,7 +1,5 @@
-QL
-==
+#QL: A Domain Specific Language for Questionnaires
 
-A Domain Specific Language for Questionnaires
 
 A DSL for auto-generated interactive questionnaire sheets. Questionnaires are characterized by conditional entry fields
 and (spreadsheet-like) dependency-directed computation. It reads from a text file the content(source code), conducting
@@ -10,8 +8,10 @@ export in PDF or JSON format the results of the filled form. ANTLR java parser a
 used for the implementation of this project.
 
 
-Example
+##Example
+
 The following example presents a possible textual representation of a simple questionnaire.
+ ```
 form Box1HouseOwning {
     hasSoldHouse: “Did you sell a house in 2010?” boolean
     hasBoughtHouse: “Did you by a house in 2010?” boolean
@@ -23,21 +23,26 @@ form Box1HouseOwning {
       }
 }
 
+ ```
+ 
+
 This simple form should generate into a GUI.
 
-Features:
-QL IDE 
- -QL Editor
- -QL Console
- -Utility buttons (run code, load code from external source)
+##Features:
 
-Auto-generated interactive questionnaire form
+####1.QL IDE 
+* QL Editor
+* QL Console
+* Utility buttons (run code, load code from external source)
 
-Export Utilities
- -PDF format
- -JSON Format
+####2.Auto-generated interactive questionnaire form
 
-Syntax
+####3.Export Utilities
+* PDF format
+* JSON Format
+
+##Syntax
+
 QL consists of questions grouped in a top-level form construct. First, each question
 identified by a name that at the same time represents the result of the question. In other
 words the name of a question is also the variable that holds the answer. Second, a question
@@ -52,6 +57,5 @@ presentation. Conditional structures associate an enabling condition to a questi
 case the question should only be presented to the user if and when the condition becomes
 true. The expression language used in conditions is the same as the expressions used in computed questions. Grouping does not have any semantics except to associate a single
 condition to multiple questions at once.
-For expressions we restrict ourselves to booleans (e.g., && , || and ! ), comparisons ( < ,
-> , >= , <= , != and == ) and basic arithmetic ( + , - , * and / ). The required types are:
-boolean, string, integer,and money/currency.
+For expressions we restrict ourselves to booleans (e.g., && , || and ! ), comparisons ( < ,> , >= , <= , != and == ) 
+and basic arithmetic ( + , - , * and / ). The supported types are:boolean, string, integer,and money/currency.
